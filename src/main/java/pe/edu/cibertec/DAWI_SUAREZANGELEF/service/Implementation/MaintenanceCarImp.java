@@ -1,6 +1,7 @@
 package pe.edu.cibertec.DAWI_SUAREZANGELEF.service.Implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pe.edu.cibertec.DAWI_SUAREZANGELEF.dto.CarDtoDet;
 import pe.edu.cibertec.DAWI_SUAREZANGELEF.dto.CarDtoM;
 import pe.edu.cibertec.DAWI_SUAREZANGELEF.entity.Car;
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MaintenanceCarImp implements MaintenanceCar {
 
     @Autowired
@@ -45,6 +47,29 @@ public class MaintenanceCarImp implements MaintenanceCar {
         });
 
         return lcars;
+    }
+
+    @Override
+    public Optional<CarDtoM> getAllCarsById(Integer id) {
+        Optional<Car> opCar = carRepository.findById(id);
+        return opCar.map(car -> new CarDtoM(
+                car.getCar_id(),
+                car.getMake(),
+                car.getModel(),
+                car.getYear(),
+                car.getVin(),
+                car.getLicense_plate(),
+                car.getOwner_name(),
+                car.getOwner_contact(),
+                car.getPurchase_date(),
+                car.getMileage(),
+                car.getEngine_type(),
+                car.getColor(),
+                car.getInsurance_company(),
+                car.getInsurance_policy_number(),
+                car.getRegistration_expiration_date(),
+                car.getService_due_date()
+        ));
     }
 
     @Override

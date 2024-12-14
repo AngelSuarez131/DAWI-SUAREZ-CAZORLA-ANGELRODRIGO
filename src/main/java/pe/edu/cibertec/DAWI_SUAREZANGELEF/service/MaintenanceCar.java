@@ -10,6 +10,8 @@ public interface MaintenanceCar {
 
     List<CarDtoM> getAllCars() throws Exception;
 
+    Optional<CarDtoM> getAllCarsById(Integer id);
+
     Optional<CarDtoDet> getCarDetById(Integer id) throws Exception;
 
     boolean updateCar(CarDtoM carDtoM)throws Exception;
