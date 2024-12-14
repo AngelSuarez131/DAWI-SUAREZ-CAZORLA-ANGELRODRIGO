@@ -1,7 +1,6 @@
 package pe.edu.cibertec.DAWI_SUAREZANGELEF.dto;
 
-public record CarDtoDet(Integer car_id,
-                        String make,
+public record CarDtoAdd(String make,
                         String model,
                         Integer year,
                         String license_plate,

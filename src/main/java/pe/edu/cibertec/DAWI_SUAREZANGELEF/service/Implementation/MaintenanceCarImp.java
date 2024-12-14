@@ -115,6 +115,7 @@ public class MaintenanceCarImp implements MaintenanceCar {
                     c.setInsurance_policy_number(carDtoM.insurance_policy_number());
                     c.setRegistration_expiration_date(carDtoM.registration_expiration_date());
                     c.setService_due_date(carDtoM.service_due_date());
+                    carRepository.save(c);
                     return true;
                 }
         ).orElse(false);
@@ -145,14 +146,15 @@ public class MaintenanceCarImp implements MaintenanceCar {
             car.setLicense_plate(carDtoM.license_plate());
             car.setOwner_name(carDtoM.owner_name());
             car.setOwner_contact(carDtoM.owner_contact());
-            car.setPurchase_date(new Date());
+            car.setPurchase_date(carDtoM.purchase_date());
             car.setMileage(carDtoM.mileage());
             car.setEngine_type(carDtoM.engine_type());
             car.setColor(carDtoM.color());
             car.setInsurance_company(carDtoM.insurance_company());
             car.setInsurance_policy_number(carDtoM.insurance_policy_number());
-            car.setRegistration_expiration_date(new Date());
-            car.setService_due_date(new Date());
+            car.setRegistration_expiration_date(carDtoM.registration_expiration_date());
+            car.setService_due_date(carDtoM.service_due_date());
+            carRepository.save(car);
             return true;
 
         }
