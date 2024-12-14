@@ -1,5 +1,5 @@
 package pe.edu.cibertec.DAWI_SUAREZANGELEF.response;
 
-public record editCarResponse(String cod,
+public record EditCarResponse(String cod,
                               String error) {
 }
